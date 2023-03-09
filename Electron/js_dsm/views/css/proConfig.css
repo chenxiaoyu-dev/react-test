@@ -1,0 +1,82 @@
+.proConfig {
+    display: none;
+    border: 2px solid #9872be;
+    background-color: #f2f2f2;
+    margin: 0px;
+    padding: 0px;
+    min-height: 300px;
+    max-height: 800px;
+    
+    position: absolute;
+    left: 100px;
+    top: 150px;
+    z-index: 999;
+}
+
+.proConfig-head {
+    background-color: rgb(172, 67, 185);
+    color: white;
+    min-width: 200px;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.proConfig-head h3 {
+    padding: 10px 0px 10px 10px;
+    margin: 0;
+    font-size: 22px;
+}
+
+.proConfig-body {
+    width: 100%;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+
+.proConfig-body-labels {
+    margin-left: 10px;
+    min-height:  300px;
+    font-size: 16px;
+    max-height: 500px;
+    overflow: auto;
+}
+
+.proConfig-body-buttons {
+    margin: 10px 70px;
+    padding: 0 4px;
+}
+
+.proConfig-body-buttons-button {
+    background-color: rgb(75, 143, 221);
+    border: 1px solid blue;
+    border-radius: 4px;
+    color: white;
+    width: 120px;
+    height: 30px;
+    font-size: 18px;
+    margin: 0px 25px 0px 25px;
+    padding: 2px 0 2px 0;
+}
+
+/*
+.seperate-line {
+    margin: 0px 20px 0px 20px;
+    align: center;
+    color: #0c18c2;
+    height:  0px;
+}    
+*/
+
+.proConfig-body-labels-label {
+    width: 180px;
+    height: 25px;
+    text-align: right;
+}
+
+.proConfig-body-labels-select {
+    margin: 2px 0 0 0;
+    text-align: left;
+    min-width: 40px;
+    height: 25px;
+}

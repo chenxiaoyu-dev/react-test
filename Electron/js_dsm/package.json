@@ -1,0 +1,22 @@
+{
+  "name": "DSM-Genius.EAO",
+  "version": "3.2.0",
+  "description": "DSM-Genius.EAO",
+  "main": "./app_start/app_main.js",
+  "scripts": {
+    "start": "electron .",
+    "watch": "watchify app/appEntry.js -t babelify -o public/js/bundle.js --debug --verbose",
+    "package": "electron-packager . DSM-Genius_V3.2.0 --overwrite --app-version=3.2.0 --platform=win32 --arch=ia32 --electron-version 1.7.9 --asar --ignore=node_modules/electron-*"
+  },
+  "repository": "",
+  "keywords": [
+    "OBD"
+  ],
+  "author": "SUKE; TOMOYA",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron-packager": "^8.7.2",
+    "electron-prebuilt": "^1.4.13"
+  },
+  "dependencies": {}
+}

@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "pages/xinxin/xinxin",
+    "pages/pipi/pipi",
+    "pages/youyou/youyou"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "渣渣喵的一家",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/xinxin/xinxin",
+        "text": "首页",
+        "iconPath": "static/main.png",
+        "selectedIconPath": "static/_main.png"
+      },
+      {
+        "pagePath": "pages/pipi/pipi",
+        "text": "列表",
+        "iconPath": "static/list.png",
+        "selectedIconPath": "static/_list.png"
+      },
+      {
+        "pagePath": "pages/youyou/youyou",
+        "text": "我的",
+        "iconPath": "static/user.png",
+        "selectedIconPath": "static/_user.png"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

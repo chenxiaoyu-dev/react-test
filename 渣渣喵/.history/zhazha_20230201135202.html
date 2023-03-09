@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <button id="debounce">防抖</button>
+      <input type="text" id="input">
+    </div>
+  </body>
+</html>
+<script>
+
+  // 防抖
+function mydebounce(fn, delay) {
+  let timer = null
+
+  // 1.接收可能传入的函数
+  const _debounce = function(...args) {
+    if (timer) clearTimeout(timer)
+
+    timer = setTimeout(() => {
+      // 2.再将参数传给fn
+      fn.apply(this, args)
+      timer = null
+    }, delay)
+  }
+   _debounce.cancel = function() {
+    if (timer) clearTimeout(timer)
+  }
+  // 返回一个新的函数
+  return _debounce
+}
+
+  const fun = () => {
+    console.log("渣渣喵", 2222);
+  };
+
+  const inputEl = document.querySelector("input");
+  //   const thorttleBtn = document.querySelector("#thorttle");
+
+  inputEl.oninput = mydebounce(fun, 3000);
+</script>

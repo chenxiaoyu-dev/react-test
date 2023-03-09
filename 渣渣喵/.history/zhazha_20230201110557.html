@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function Debounce(fn, time) {
+        let timer = null; //定义定时器
+        let _debounce = function (arguents) {
+          if (timer) {
+            clearTimeout(timer);
+          }
+          timer = setTimeout(() => {
+            fn.apply(this, arguents);
+            timer = null;
+          }, delay);
+          console.log(timer);
+        };
+        _debounce.cancel = function () {
+          //取消防抖
+          if (timer) clearTimeout(timer);
+        };
+      }
+      const fun=()=>{
+        console.log('渣渣喵');
+      }
+Debounce(fun,3000)
+    </script>
+  </head>
+  <body>
+    <div></div>
+  </body>
+</html>

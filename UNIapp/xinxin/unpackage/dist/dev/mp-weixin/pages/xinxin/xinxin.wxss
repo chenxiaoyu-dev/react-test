@@ -1,0 +1,16 @@
+
+.scroll-view_H {
+		white-space: nowrap;
+		justify-content: space-between;
+		align-items: center;
+}
+.item {
+		width: 33%;
+		height: 50rpx;
+		border-radius: 20rpx;
+		display: inline-block;
+		box-sizing: border-box;
+		background: Silver;
+		margin: 0 5rpx;
+		text-align: center;
+}

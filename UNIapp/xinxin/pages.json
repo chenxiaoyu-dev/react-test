@@ -1,0 +1,40 @@
+{
+	
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{"path" : "pages/xinxin/xinxin"},
+		{"path": "pages/pipi/pipi"},
+		{"path": "pages/youyou/youyou"}
+		
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "渣渣喵的一家",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar":{
+		"backgroundColor":"#FFFFFF",
+		"borderStyle": "black",
+		"list": [
+			{
+				"pagePath": "pages/xinxin/xinxin",
+				"text": "首页",
+				"iconPath": "static/main.png",
+				"selectedIconPath": "static/_main.png"
+			},{
+				"pagePath": "pages/pipi/pipi",
+				"text": "列表",
+				"iconPath": "static/list.png",
+				"selectedIconPath": "static/_list.png"
+			},
+			{
+				"pagePath": "pages/youyou/youyou",
+				"text": "我的",
+				"iconPath": "static/user.png",
+				"selectedIconPath": "static/_user.png"
+			}
+		]
+		
+	},
+	"uniIdRouter": {}
+}

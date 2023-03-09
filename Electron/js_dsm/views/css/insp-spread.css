@@ -1,0 +1,100 @@
+[class^="ribbon-icon"], [class^="spread-border-icon"], [class^="spread-formatter-icon"] {
+     background-image: url(images/icons.png); 
+}
+
+.spread-border-icon-bottomborder {
+  background-position: 0 -416px;
+}
+.spread-border-icon-topborder {
+  background-position: 0 -3264px;
+}
+.spread-border-icon-leftborder {
+  background-position: 0 -1728px;
+}
+.spread-border-icon-rightborder {
+  background-position: 0 -2560px;
+}
+.spread-border-icon-noborder {
+  background-position: 0 -1952px;
+}
+.spread-border-icon-allborder {
+  background-position: 0 -128px;
+}
+.spread-border-icon-outsideborder {
+  background-position: 0 -2016px;
+}
+.spread-border-icon-thickborder {
+  background-position: 0 -3184px;
+}
+.spread-border-icon-bdborder {
+  background-position: 0 -448px;
+}
+.spread-border-icon-tbborder {
+  background-position: 0 -3200px;
+}
+.spread-border-icon-tb2border {
+  background-position: 0 -3216px;
+}
+.spread-border-icon-ttbborder {
+  background-position: 0 -3248px;
+}
+.spread-border-icon-tdbborder {
+  background-position: 0 -3232px;
+}
+.spread-border-icon-moreborder {
+  background-position: 0 -1856px;
+}
+.spread-border-icon-insideborder {
+  background-position: 0 -1664px;
+}
+.spread-border-icon-innerhorizontal {
+  background-position: 0 -1680px;
+}
+.spread-border-icon-innervertical {
+  background-position: 0 -1696px;
+}
+.spread-formatter-icon-percent {
+  background-position: 0 -2064px;
+}
+.spread-formatter-icon-comma {
+  background-position: 0 -720px;
+}
+.spread-formatter-icon-increase-decimal {
+  background-position: 0 -800px;
+}
+.spread-formatter-icon-decrease-decimal {
+  background-position: 0 -1520px;
+}
+.sheetTabEditor {
+  z-index: 10000;
+  font: 10pt arial;
+}
+
+/* extend */
+.ribbon-icon-action-list {
+  background-position: -16px -3616px;
+}
+.ribbon-icon-action-compare {
+  background-position: -16px -512px;
+}
+.ribbon-icon-action-copy {
+  background-position: -16px -1952px;
+}
+.ribbon-icon-action-handover {
+  background-position: -16px -2304px;
+}
+.ribbon-icon-remove-all-sheets {
+  background-position:  0 -896px;
+}
+.ribbon-icon-remove-other-sheets {
+  background-position:  0 -880px;
+}
+.ribbon-icon-open-fault {
+  background-position: 0px -1376px;
+}
+.ribbon-icon-close-fault {
+  background-position: 0px -2400px;
+}
+.ribbon-icon-action-close {
+  background-position: -16px -768px;
+}

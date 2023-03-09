@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <script>
+      if (typeof module === "object") {
+        window.module = module;
+        module = undefined;
+      }
+    </script>
+
+    <script
+      type="text/javascript"
+      src="scripts/jquery/jquery-3.2.0.min.js"
+      charset="utf-8"
+    ></script>
+    <script
+      type="text/javascript"
+      src="scripts/other_REF/mainWindowToggleViewState.js"
+    ></script>
+
+    <script>
+      if (window.module) module = window.module;
+    </script>
+
+    <style type="text/css">
+      body,
+      html {
+        padding: 0px;
+        margin: 0px;
+      }
+      .header {
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+        background-color: #699c03;
+      }
+
+      .header-nav {
+        min-width: 650px;
+
+        height: 50px;
+        line-height: 50px;
+      }
+
+      .header-nav-left {
+        float: left;
+        min-width: 100px;
+        width: 100%;
+        padding-left: 20px;
+        margin-top: 10px;
+      }
+
+      .header-nav-left h3 {
+        font-size: 18px;
+        line-height: 25px;
+        margin: 0px;
+        color: #fff;
+      }
+
+      .user {
+        min-width: 510px;
+        height: 100%;
+        text-align: center;
+        margin: 0px;
+        padding: 0px;
+        position: relative;
+      }
+      .user-list {
+        width: 470px;
+        height: 250px;
+        padding: 15px;
+        position: relative;
+        margin: 20px 0 0 50px auto;
+        border: 1px solid #dbdbdb;
+      }
+      .user-list ul {
+        list-style: none;
+        width: 100%;
+        overflow: hidden;
+        height: 250px;
+        position: relative;
+        padding: 10px 0px;
+        margin: 0px;
+      }
+      .user-list ul li {
+        width: 100%;
+        list-style: none;
+        margin-bottom: 15px;
+      }
+      .user-list ul li i {
+        color: red;
+      }
+      .user-list ul li label {
+        display: inline-block;
+        width: 12%;
+        text-align: right;
+        font-size: 16px;
+        margin-right: 10px;
+        font-family: "微软雅黑";
+      }
+      .user-list ul li input {
+        display: inline-block;
+        border: 1px solid #dbdbdb;
+        border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+        height: 30px;
+        padding: 2px 5px;
+        vertical-align: middle;
+      }
+      .buttons {
+        width: 100%;
+        height: 35px;
+        padding: 5px 10px;
+        position: absolute;
+        bottom: 40px;
+        left: 0px;
+        right: 0px;
+      }
+      .openbutton,
+      .onbutton {
+        display: inline-block;
+        width: 40%;
+      }
+      .buttons button {
+        width: 90%;
+        color: #fff;
+        padding: 5px 10px;
+        background-color: #4cb0f9;
+        border: 1px solid #4cb0f9;
+        border-radius: 4px;
+        vertical-align: middle;
+        height: 35px;
+        line-height: 25px;
+        cursor: pointer;
+      }
+      #form2 {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="header-nav">
+        <div class="header-nav-left">
+          <h3>DSM Genius_用户登录</h3>
+        </div>
+      </div>
+    </div>
+    <div class="user">
+      <div class="user-list">
+        <form id="form1" action="" method="post">
+          <ul>
+            <li>
+              <label>用户名</label
+              ><input
+                type="text"
+                name="username"
+                id="username"
+                placeholder="请输入用户名"
+              />
+            </li>
+            <li>
+              <label>密码</label
+              ><input
+                type="password"
+                name="pass"
+                id="pass"
+                placeholder="请输入6-15位密码"
+              />
+            </li>
+            <div class="buttons">
+              <a class="onbutton"
+                ><button type="submit" id="onsubmit">登录</button></a
+              >
+              <a class="openbutton"
+                ><button type="submit" id="getform2">注册</button></a
+              >
+            </div>
+          </ul>
+        </form>
+        <form id="form2" action="" method="post">
+          <ul>
+            <li>
+              <label>用户名</label
+              ><input
+                type="text"
+                name="username"
+                id="getusername"
+                placeholder="姓名或邮箱"
+              /><i>*</i>
+            </li>
+            <li>
+              <label>密码</label
+              ><input
+                type="password"
+                name="pass"
+                id="getpass"
+                placeholder="6-15位密码"
+              /><i>*</i>
+            </li>
+            <div class="buttons">
+              <a class="getbutton"
+                ><button type="submit" id="getsubmit">提交注册信息</button></a
+              >
+              <p>已有账号立即<a href="#" id="getform1">登录</a></p>
+            </div>
+          </ul>
+        </form>
+      </div>
+    </div>
+    <script type="text/javascript">
+      var { ipcRenderer, shell } = require("electron");
+      var fs = require("fs"),
+        path = require("path"),
+        os = require("os");
+
+      $(function () {
+        $(".onbutton #onsubmit").on("click", function () {
+          var $username = $("#username").val(),
+            $pass = $("#pass").val();
+          if ($username == "" || $pass == "") {
+            alert("用户名及密码不能为空");
+            return false;
+          } else {
+            var datas = {
+              username: $username,
+              password: $pass,
+            };
+            //datas = JSON.stringify(datas);
+            console.log(datas);
+            console.log(typeof datas);
+            $.ajax({
+              url: "http://47.102.215.178:8089/ina-uics/common/v1.0.0/web/loginDSMGenius",
+              type: "POST",
+              dataType: "JSON",
+              data: JSON.stringify(datas),
+              contentType: "application/json",
+              crossDomain: true,
+              success: function (result) {
+                console.log("进入success:", result);
+                if (result.result === "V") {
+                  ipcRenderer.send("login-success");
+                } else {
+                  alert("登录失败");
+                }
+              },
+              error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("网络连接失败，请稍后重试或联系管理员！");
+                console.log(XMLHttpRequest);
+                console.log(XMLHttpRequest.status);
+                console.log(XMLHttpRequest.readyState);
+                console.log(textStatus);
+                console.log(errorThrown);
+              },
+            });
+
+            //临时开通限时权限的代码
+            /*
+                    var endTime = new Date('2021-07-31');
+                        var nowTime = new Date();
+                        var diffTime = endTime - nowTime;
+                        if(diffTime < 0) {alert('This API is only available before 2021-07-31!');}
+                        else if($username === 'eaofa6a' && $pass === '6ahct') {ipcRenderer.send('login-success');}
+                        else alert('userneme or password is not correct!');
+                    */
+            //临时开通限时权限的代码
+          }
+          return false;
+        });
+
+        $("#getform2").click(function () {
+          alert("注册功能暂未开放，敬请期待...");
+        });
+      });
+    </script>
+    <script type="text/javascript">
+      document.getElementById("getform1").onclick = function () {
+        document.getElementById("form2").style.display = "none";
+        document.getElementById("form1").style.display = "block";
+        return false;
+      };
+    </script>
+  </body>
+</html>

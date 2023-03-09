@@ -1,0 +1,1 @@
+<view><scroll-view scroll-x="true" enable-flex="true" class="scroll-view_H"><view wx:for="{{a}}" wx:for-item="item" wx:key="b" class="item">{{item.a}}</view></scroll-view></view>

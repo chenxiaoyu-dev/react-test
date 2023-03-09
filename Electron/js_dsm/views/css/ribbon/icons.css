@@ -1,0 +1,51 @@
+.icon-open-table {
+	background: url('./icons/normal/open-table.png') no-repeat center center;
+}
+.icon-open-database {
+	background: url('./icons/normal/open-database.png') no-repeat center center;
+}
+.icon-open-excel {
+	background: url('./icons/normal/open-excel.png') no-repeat center center;
+}
+.icon-xlsx {
+	background: url('./icons/normal/xlsx.png') no-repeat center center;
+}
+.icon-dcm {
+	background: url('./icons/normal/dcm.png') no-repeat center center;
+}
+.icon-item {
+	background: url('./icons/normal/template.png') no-repeat center center;
+}
+.icon-toggle-side-panel {
+	background: url('./icons/normal/side-panel.png') no-repeat center center;
+}
+.icon-find-files {
+	background: url('./icons/normal/find-files.png') no-repeat center center;
+}
+.icon-filter {
+	background: url('./icons/normal/sort-filter.png') no-repeat center center;
+}
+.icon-run {
+	background: url('./icons/normal/run.png') no-repeat center center;
+}
+.icon-remove-active-sheet {
+	background: url('./icons/normal/small-icon/remove-sheet.png') no-repeat center center;
+}
+.icon-lib-config {
+	background: url('./icons/normal/Lib_Conf.png') no-repeat center center;
+}
+.icon-config-envref {
+	background: url('./icons/normal/EnvRef.png') no-repeat center center;
+}
+.icon-config-isSGM {
+	background: url('./icons/normal/Cus_GM.png') no-repeat center center;
+}
+.icon-config-partDCM {
+	background: url('./icons/normal/DFC.png') no-repeat center center;
+}
+.icon-resp-col {
+	background: url('./icons/normal/Resp.png') no-repeat center center;
+}
+.icon-config-CtlDis {
+	background: url('./icons/normal/CtlDis.png') no-repeat center center;
+}

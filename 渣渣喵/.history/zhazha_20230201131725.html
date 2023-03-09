@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <button id="debounce">防抖</button>
+    </div>
+  </body>
+</html>
+<script>
+const debounce = (fn, time) => {
+      let timeout = null
+      return function () {
+        clearTimeout(timeout)
+        timeout = setTimeout(() => {
+          fn.apply(this, arguments)
+        }, time);
+      }
+    }
+
+  const fun = () => {
+    console.log("渣渣喵", 2222);
+  };
+
+  const debounceBtn = document.querySelector("#debounce");
+  //   const thorttleBtn = document.querySelector("#thorttle");
+
+  debounceBtn.onclick = function () {
+    console.log("点击事件");
+    debounce(fun, 300);
+    
+  };
+</script>

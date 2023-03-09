@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <button id="debounce">防抖</button>
+      <input type="text" id="input" />
+    </div>
+  </body>
+</html>
+<script>
+  // 防抖
+  function mydebounce(fn, delay) {
+    let timer = null;
+
+    // 1.接收可能传入的函数
+    const _debounce = function (...args) {
+      if (timer) clearTimeout(timer);
+
+      timer = setTimeout(() => {
+        // 2.再将参数传给fn
+        fn.apply(this, args);
+      }, delay);
+    };
+    _debounce.cancel = function () {
+      if (timer) clearTimeout(timer);
+    };
+    // 返回一个新的函数
+    return _debounce;
+  }
+
+  const fun = () => {
+    console.log("渣渣喵", 2222);
+  };
+
+  const inputEl = document.querySelector("input");
+  //   const thorttleBtn = document.querySelector("#thorttle");
+
+  inputEl.oninput = mydebounce(fun, 3000);
+  // 节流
+  let throttle = function (callback, delay) {
+    // 判断依据
+    let flag = true;
+    return function () {
+      // 如果flag为false便忽略这次操作
+      if (flag) {
+        /*  设定定时器，当任务执行时将flag恢复false，
+                        允许下一次的事件触发
+                    */
+        setTimeout(() => {
+          callback.call(this);
+          flag = true;
+        }, delay);
+      }
+      //在定时任务执行之前，flag始终为false
+      flag = false;
+    };
+  };
+
+  //继承
+
+  // 原型链继承
+  function Zha() {
+    this.name = "xinxin";
+    this.sun = () => {
+      console.log("小心心");
+    };
+  }
+  function Pi() {}
+  Pi.prototype = new Zha();
+  let pipi = new Pi();
+  pipi.sun();
+  // 借用构造函数继承
+  function Fun() {
+    (this.name = "xinxin"), (this.age = 0);
+  }
+  Fun.prototype.add = function () {
+    return this.name;
+  };
+  function Fun2() {
+    Fun.call(this);
+    this.type = "child3";
+  }
+  Fun2.prototype = new Fun();
+  let zha = new Fun2();
+  console.log(zha.add());
+  console.log(zha);
+
+  //组合继承
+  function You(name, xinxin) {
+    this.name = name;
+    this.xinxin = xinxin;
+  }
+  You.prototype.add = () => {
+    console.log("小胖心的春天");
+  };
+
+  function Xin(name, xinxin) {
+    console.log(name, xinxin);
+    You.call(this, name, xinxin);
+  }
+  Xin.prototype = new You();
+  let xinxin1 = new Xin("渣渣喵", "悠悠");
+  console.log(xinxin1.name);
+  xinxin1.add();
+  let pi = new Xin("大皮皮", "皮儿");
+  console.log(pi.xinxin);
+</script>
